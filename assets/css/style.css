@@ -1,18 +1,88 @@
+@font-face {
+    font-family: 'battlestar';
+    src: url('Battlestar.ttf');
+}
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-header {
+html {
+    height: 100%;
+}
 
+body {
+    height: 100%;
+    min-width: 660px;
+    color: white;
+    background-image: url("../images/bsg-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    text-align: center;
+    width: 500px;
+    margin: auto;
+}
+
+header > img {
+    position:relative;
+    bottom: 35px;
+}
+
+.logo {
+    color: silver;
+    position: relative;
+    bottom: 50px;
+    font-size: 36px;
+    font-family: battlestar;
 }
 
 main {
-
+    text-align: center;
+    font-size: 18px;
 }
 
 main > div {
-
+    margin-bottom: 20px;
 }
 
+.instructions {
+    font-size: 22px;
+    position: relative;
+    bottom: 15px;
+}
+
+.inline-container, .block-container {
+    background-color: rgba(0, 0, 0, .5);
+    border: 1px solid black;
+    transition: border .5s linear, background-color .5s linear;
+}
+
+.inline-container:hover, .block-container:hover {
+    background-color: rgba(0, 0, 0, .8);
+    border: 1px solid white;
+}
+
+.inline-container {
+    width: 200px;
+    padding: 10px 0;
+    display: inline-block;
+}
+
+.block-container {
+    width: 400px;
+    padding: 25px;
+    margin: 20px auto;
+}
+
+.wins, .guesses, .word, .letters {
+    color: white ;
+    font-size: 36px;
+    font-family: battlestar;
+    padding: 5px;
+}
