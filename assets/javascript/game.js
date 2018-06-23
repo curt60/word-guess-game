@@ -1,10 +1,10 @@
 //declare global variables
-var words = ["this", "that", "other"];
+var words = ["cylon", "raider", "earth", "kobol"];
 var wordIndex;
 var currentWord;
 var validInputRegEx = /^[a-z]$/i;
 var wins = 0;
-const MAX_GUESSES = 5;
+const MAX_GUESSES = 10;
 var guesses;
 var matchedLetters;
 var guessedLetters;
@@ -18,11 +18,13 @@ var lettersElement = document.querySelector(".letters");
 //randomly select a word and reset variables
 function selectWord() {
     wordIndex = Math.floor(Math.random() * words.length);
-    currentWord = words.slice(wordIndex, wordIndex + 1)[0];
+    currentWord = words.slice(wordIndex, wordIndex + 1)[0].toUpperCase();
     words.splice(wordIndex, wordIndex + 1);
     matchedLetters = [];
     guessedLetters = [];
     guesses = MAX_GUESSES;
+    displayGuesses();
+    displayWins();
     console.log(currentWord);
 }
 
@@ -50,6 +52,16 @@ function guessedLetterDisplay() {
     }
     console.log("guessed letters: " + output);
     return output;
+}
+
+//display # of wins
+function displayWins() {
+    winElement.innerHTML = wins;
+}
+
+//display guesses remaining
+function displayGuesses() {
+    guessesElement.innerHTML = guesses;
 }
 
 //check letter for possible match and return status
@@ -84,16 +96,14 @@ function checkMatch(letter) {
     }
     
     if (match) {
-        console.log(matchedLetters);
         guesses--;
-        console.log("guesses: " + guesses);
+        displayGuesses();
         return "match";
     }
     else {
         guessedLetters.push(letter);
-        console.log(guessedLetters);
         guesses--;
-        console.log("guesses: " + guesses);
+        displayGuesses();
         return "noMatch";
     }
 }
@@ -114,15 +124,16 @@ wordElement.innerHTML = matchedLetterDisplay();
 
 //listen for key input
 document.onkeyup = function() {
-    var keyInput = event.key;
+    var keyInput = event.key.toUpperCase();
 
     //check match status
     var matchStatus = checkMatch(keyInput);
     if (matchStatus === "match") {
         wordElement.innerHTML = matchedLetterDisplay();
         if (checkSuccess()) {
-            alert("You won this round!");
             wins++;
+            displayWins();
+            // alert("You won this round!");
             if (words.length < 1) alert("Game Over");
             else selectWord();
         }
