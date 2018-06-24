@@ -145,3 +145,7 @@ main > div.instructions {
     font-family: battlestar;
     padding: 4px;
 }
+
+.word {
+    margin-top: 14px;
+}
