@@ -55,12 +55,11 @@ function initialize() {
     mainElement.style.opacity = 1;
     successElement.style.opacity = 0;
     failureElement.style.opacity = 0;
-    endWordElement[0].innerHTML = currentWord;
-    endWordElement[1].innerHTML = currentWord;
+    setTimeout(function() {endWordElement[0].innerHTML = currentWord;}, 1000);
+    setTimeout(function() {endWordElement[1].innerHTML = currentWord;}, 1000);
 
     //send current word to console (for testing)
     console.log(currentWord);
-    console.log(words);
 }
 
 //return the current matched letters to display
