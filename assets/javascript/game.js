@@ -171,7 +171,7 @@ function failureEvent() {
 }
 
 //play theme music
-audioTheme.volume = .02;
+audioTheme.volume = .2;
 audioTheme.play();
 
 //initialize new round
