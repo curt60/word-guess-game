@@ -16,7 +16,7 @@ html {
 
 body {
     height: 100%;
-    min-width: 660px;
+    min-width: 560px;
     color: white;
     background-image: url("../images/bsg-background.jpg");
     background-repeat: no-repeat;
@@ -26,27 +26,28 @@ body {
 
 header {
     text-align: center;
-    width: 500px;
+    width: 320px;
     margin: auto;
     transition: opacity 1s linear;
 }
 
 header > img {
     position:relative;
-    bottom: 35px;
+    bottom: 25px;
+    width: 320px;
 }
 
 .logo {
     color: silver;
     position: relative;
-    bottom: 50px;
-    font-size: 36px;
+    bottom: 40px;
+    font-size: 28px;
     font-family: battlestar;
 }
 
 main {
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
     transition: opacity 1s linear;
 }
 
@@ -56,7 +57,7 @@ main {
     background-color: rgba(0, 0, 0, .7);
     width: 100%;
     height: 100%;
-    min-width: 660px;
+    min-width: 560px;
     top: 0;
     z-index: -1;
     transition: opacity 1s linear;
@@ -69,7 +70,7 @@ main {
     background-color: rgba(0, 0, 0, 1);
     width: 100%;
     height: 100%;
-    min-width: 660px;
+    min-width: 560px;
     top: 0;
     z-index: -1;
     transition: opacity 1s linear;
@@ -77,12 +78,12 @@ main {
 }
 
 .game-over-container > .end-message {
-    font-size: 54px;
+    font-size: 42px;
 }
 
 img.end-medal {
     display: block;
-    width: 300px;
+    height: 240px;
     margin: auto;
 }
 
@@ -90,14 +91,14 @@ img.end-medal {
     margin: 25px;
     text-align: center;
     font-family: battlestar;
-    font-size: 32px;
+    font-size: 26px;
 }
 
 .end-message {
     margin: 25px;
     text-align: center;
     font-family: battlestar;
-    font-size: 32px;
+    font-size: 26px;
 }
 
 main > div {
@@ -105,7 +106,7 @@ main > div {
 }
 
 .instructions {
-    font-size: 22px;
+    font-size: 18px;
     text-align: center;
 }
 
@@ -126,20 +127,21 @@ main > div.instructions {
 }
 
 .inline-container {
-    width: 200px;
-    padding: 10px 0;
+    width: 160px;
+    padding: 8px 0;
     display: inline-block;
 }
 
 .block-container {
-    width: 400px;
-    padding: 25px;
-    margin: 20px auto;
+    width: 320px;
+    padding: 8px;
+    margin: 0 auto 16px auto;
+    height: 70px;
 }
 
 .wins, .guesses, .word, .letters {
     color: white ;
-    font-size: 36px;
+    font-size: 26px;
     font-family: battlestar;
-    padding: 5px;
+    padding: 4px;
 }

@@ -26,12 +26,15 @@ var audioTheme = document.querySelector("audio.theme");
 var audioBlaster = document.querySelector("audio.blaster");
 var audioRicochet = document.querySelector("audio.ricochet");
 var audioFail = document.querySelector("audio.fail");
+var audioGameOver = document.querySelector("audio.game-over");
 
 //initialize new round
 function initialize() {
     //if all words played, end the game
     if (words.length < 1) {
         gameOverElement.style.opacity = 1;
+        audioTheme.pause();
+        audioGameOver.play();
         gameState = "game-over";
         return
     }
@@ -168,7 +171,7 @@ function failureEvent() {
 }
 
 //play theme music
-audioTheme.volume = 0.02;
+audioTheme.volume = .02;
 audioTheme.play();
 
 //initialize new round
