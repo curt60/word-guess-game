@@ -9,6 +9,24 @@
     <script src="assets/javascript/analytics.js"></script>
 </head>
 <body>
+    <div class="success-container">
+        <div class="end-message">CORRECT, THE WORD WAS:</div>
+        <div class="end-word"></div>
+        <img class="end-medal" src="assets/images/medal.png" alt="Medal">
+        <div class="end-message">HUMANS WON THIS BATTLE !</div>
+        <div class="instructions">Press Any Key to Continue</div>
+    </div>
+    <div class="failure-container">
+        <div class="end-message">SORRY, THE WORD WAS:</div>
+        <div class="end-word"></div>
+        <img class="end-medal" src="assets/images/medal-cylon.png" alt="Medal">
+        <div class="end-message">CYLONS WIN THIS BATTLE !</div>
+        <div class="instructions">Press Any Key to Continue</div>
+    </div>
+    <div class="game-over-container">
+        <div class="end-message">GAME OVER</div>
+        <div class="instructions">Press Any Key to Play Again</div>
+    </div>
     <header>
         <img src="assets/images/bsg-logo-2.png" alt="BSG Logo" style="width: 400px">
         <div class="logo">HANGMAN GAME</div>
@@ -31,6 +49,7 @@
     <footer>
 
     </footer>
+    <audio class="theme" src="assets/sounds/theme.mp3" type="audio/mpeg"></audio>
     <script src="assets/javascript/game.js"></script>
 </body>
 </html>
