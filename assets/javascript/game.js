@@ -12,6 +12,7 @@ var guessedLetters;
 var gameState = "new";
 
 //bind variables to HTML output elements
+var headerElement = document.querySelector("header");
 var mainElement = document.querySelector("main");
 var winElement = document.querySelector(".wins");
 var wordElement = document.querySelector(".word");
@@ -22,6 +23,9 @@ var failureElement = document.querySelector(".failure-container");
 var endWordElement = document.querySelectorAll(".end-word");
 var gameOverElement = document.querySelector(".game-over-container");
 var audioTheme = document.querySelector("audio.theme");
+var audioBlaster = document.querySelector("audio.blaster");
+var audioRicochet = document.querySelector("audio.ricochet");
+var audioFail = document.querySelector("audio.fail");
 
 //initialize new round
 function initialize() {
@@ -45,6 +49,7 @@ function initialize() {
     displayGuesses();
     displayMatchedLetters();
     displayGuessedLetters();
+    headerElement.style.opacity = 1;
     mainElement.style.opacity = 1;
     successElement.style.opacity = 0;
     failureElement.style.opacity = 0;
@@ -122,11 +127,13 @@ function checkMatch(letter) {
     }
     
     if (match) {
+        audioBlaster.play();
         guesses--;
         displayGuesses();
         return "match";
     }
     else {
+        audioRicochet.play();
         guessedLetters.push(letter);
         guesses--;
         displayGuesses();
@@ -146,19 +153,22 @@ function checkSuccess() {
 function successEvent() {
     wins++;
     displayWins();
+    headerElement.style.opacity = 0;
     mainElement.style.opacity = 0;
     successElement.style.opacity = 1;
     gameState = "end-round"
 }
 
 function failureEvent() {
+    audioFail.play();
+    headerElement.style.opacity = 0;
     mainElement.style.opacity = 0;
     failureElement.style.opacity = 1;
     gameState = "end-round"
 }
 
 //play theme music
-audioTheme.volume = 0.05;
+audioTheme.volume = 0.02;
 audioTheme.play();
 
 //initialize new round

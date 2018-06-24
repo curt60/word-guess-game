@@ -21,12 +21,14 @@ body {
     background-image: url("../images/bsg-background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: black;
 }
 
 header {
     text-align: center;
     width: 500px;
     margin: auto;
+    transition: opacity 1s linear;
 }
 
 header > img {
@@ -56,7 +58,7 @@ main {
     height: 100%;
     min-width: 660px;
     top: 0;
-    z-index: 1;
+    z-index: -1;
     transition: opacity 1s linear;
     opacity: 0;
 }
@@ -69,7 +71,7 @@ main {
     height: 100%;
     min-width: 660px;
     top: 0;
-    z-index: 2;
+    z-index: -1;
     transition: opacity 1s linear;
     opacity: 0;
 }
