@@ -1,6 +1,5 @@
 //declare global variables
-// var words = ["cylon", "raider", "earth", "kobol", "toaster"];
-var words = ["cylon", "raider"];
+var words = ["cylon", "raider", "earth", "kobol", "toaster"];
 var wordIndex;
 var currentWord;
 var validInputRegEx = /^[a-z]$/i;
@@ -41,8 +40,8 @@ function initialize() {
     }
     //select random word and remove from list of possible words  
     wordIndex = Math.floor(Math.random() * words.length);
-    currentWord = words.slice(wordIndex, wordIndex + 1)[0].toUpperCase();
-    words.splice(wordIndex, wordIndex + 1);
+    currentWord = words.slice(wordIndex)[0].toUpperCase();
+    words.splice(wordIndex, 1);
     //reset variables
     matchedLetters = [];
     guessedLetters = [];
@@ -61,6 +60,7 @@ function initialize() {
 
     //send current word to console (for testing)
     console.log(currentWord);
+    console.log(words);
 }
 
 //return the current matched letters to display
