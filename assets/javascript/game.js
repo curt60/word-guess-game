@@ -14,6 +14,7 @@ var gameState = "new";
 //bind variables to HTML output elements
 var headerElement = document.querySelector("header");
 var mainElement = document.querySelector("main");
+var mainInstructionsElement = document.querySelector ("main > .instructions");
 var winElement = document.querySelector(".wins");
 var wordElement = document.querySelector(".word");
 var guessesElement = document.querySelector(".guesses");
@@ -46,7 +47,6 @@ function initialize() {
     matchedLetters = [];
     guessedLetters = [];
     guesses = MAX_GUESSES;
-    gameState = "new";
     //reset display elements
     displayWins();
     displayGuesses();
@@ -170,17 +170,22 @@ function failureEvent() {
     gameState = "end-round"
 }
 
-//play theme music
-audioTheme.volume = .2;
-audioTheme.play();
-
 //initialize new round
 initialize();
 
 //listen for key input
-document.onkeyup = function() {
+document.onkeyup = function(event) {
+    if (gameState === "new") {
+        //play theme music
+        audioTheme.volume = .02;
+        audioTheme.play();
+        gameState = "start";
+        mainInstructionsElement.innerHTML = "Choose a letter...";
+        return;
+    }
     //check if end of round or end of game
-    if (gameState === "end-round") {
+    else if (gameState === "end-round") {
+        gameState = "new-round";
         initialize();
         return;
     }
