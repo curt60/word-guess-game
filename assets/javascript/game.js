@@ -129,12 +129,16 @@ function checkMatch(letter) {
     }
     
     if (match) {
+        audioBlaster.pause();
+        audioBlaster.currentTime = 0;
         audioBlaster.play();
         guesses--;
         displayGuesses();
         return "match";
     }
     else {
+        audioRicochet.pause();
+        audioRicochet.currentTime = 0;
         audioRicochet.play();
         guessedLetters.push(letter);
         guesses--;
